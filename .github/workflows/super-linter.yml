@@ -4,17 +4,23 @@
 # You can adjust the behavior by modifying this file.
 # For more information, see:
 # https://github.com/github/super-linter
-name: Lint Code Base
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+name: Dart Workflow
+
+on: push
+
+
 jobs:
-  run-lint:
+  build:
+    name: Example
     runs-on: ubuntu-latest
-    steps:    
+    container:
+      image:  google/dart:latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: dart pub get
       - name: Analyze Dart
-        uses: zgosalvez/github-actions-analyze-dart@v1.6.1
+        uses: zgosalvez/github-actions-analyze-dart@v1
 
