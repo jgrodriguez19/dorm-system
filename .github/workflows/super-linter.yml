@@ -20,7 +20,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install dependencies
-        run: dart pub get
+        run: flutter pub get
       - name: Analyze Dart
         uses: zgosalvez/github-actions-analyze-dart@v1
 
